@@ -25,8 +25,6 @@ class AllocationsRelationManager extends RelationManager
 {
     protected static string $relationship = 'allocations';
 
-    protected static ?string $icon = 'tabler-plug-connected';
-
     public function form(Form $form): Form
     {
         return $form
@@ -64,12 +62,6 @@ class AllocationsRelationManager extends RelationManager
                 TextInputColumn::make('ip')
                     ->searchable()
                     ->label('IP'),
-            ])
-            ->filters([
-                //
-            ])
-            ->actions([
-                //
             ])
             ->headerActions([
                 Tables\Actions\Action::make('create new allocation')->label('Create Allocations')

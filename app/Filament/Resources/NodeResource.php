@@ -3,8 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\NodeResource\Pages;
-use App\Filament\Resources\NodeResource\RelationManagers\AllocationsRelationManager;
-use App\Filament\Resources\NodeResource\RelationManagers\NodesRelationManager;
 use App\Models\Node;
 use Filament\Resources\Resource;
 
@@ -19,14 +17,6 @@ class NodeResource extends Resource
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count() ?: null;
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            AllocationsRelationManager::class,
-            NodesRelationManager::class,
-        ];
     }
 
     public static function getPages(): array

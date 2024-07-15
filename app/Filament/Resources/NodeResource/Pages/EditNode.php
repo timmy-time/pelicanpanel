@@ -22,6 +22,7 @@ use Filament\Forms\Set;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Support\HtmlString;
+use Njxqlus\Filament\Components\Forms\RelationManager;
 use Webbingbrasil\FilamentCopyActions\Forms\Actions\CopyAction;
 
 class EditNode extends EditRecord
@@ -66,6 +67,20 @@ class EditNode extends EditRecord
                             View::make('filament.components.node-cpu-chart')->columnSpan(3),
                             View::make('filament.components.node-memory-chart')->columnSpan(3),
                             // TODO: Make purdy View::make('filament.components.node-storage-chart')->columnSpan(3),
+                        ]),
+                    Tab::make('Servers')
+                        ->icon('tabler-brand-docker')
+                        ->schema([
+                            RelationManager::make()
+                                ->manager(NodeResource\RelationManagers\NodesRelationManager::class)
+                                ->columnSpanFull(),
+                        ]),
+                    Tab::make('Allocations')
+                        ->icon('tabler-plug-connected')
+                        ->schema([
+                            RelationManager::make()
+                                ->manager(NodeResource\RelationManagers\AllocationsRelationManager::class)
+                                ->columnSpanFull(),
                         ]),
                     Tab::make('Basic Settings')
                         ->icon('tabler-server')
