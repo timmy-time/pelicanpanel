@@ -1,7 +1,5 @@
 {
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": {
-    "ghcr.io/devcontainers/features/php:1": {},
-    "ghcr.io/opencodeco/devcontainers/install-php-extensions:0": {}
   }
 }
